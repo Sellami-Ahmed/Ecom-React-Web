@@ -29,7 +29,6 @@ export default function Product() {
   };
   const  added = (data) => {
     let x =cart.findIndex(elem=>(elem._id===data._id && elem.count>0));
-    console.log(x)
     if (x!==-1){
       qte=cart[x].count.toString();
       return "yes"

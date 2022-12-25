@@ -7,6 +7,7 @@ const cartReducer = (state = initialState,  { type, data }) => {
   let index=-1;
   switch (type) {
     case "ADD_PRODUCT":
+      list=state.data;
       return {data:[...list, {...data,count:1}]};
     case "REMOVE_PRODUCT":
       list=state.data.filter((el) => el._id !== data._id);
