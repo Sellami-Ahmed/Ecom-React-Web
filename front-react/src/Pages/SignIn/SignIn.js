@@ -52,7 +52,7 @@ export default function SignIn() {
               onChange={(e) => onChange(e, "password")}
             />
             <div className="flex justify-content-center align-items-center">
-              <Button name={"Sign In"} onClick={onSubmit} />
+              <Button name={"Sign In"} onClick={onSubmit} variant={"primary"}/>
               <Link to="/signUp"> Register </Link>
             </div>
           </Form>
