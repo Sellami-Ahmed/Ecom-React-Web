@@ -12,6 +12,7 @@ export default function Btn(props) {
         className={className.join(" ")}
         variant={props.variant}
         onClick={props.onClick}
+        disabled={props.disabled}
       >
         {props.name}
       </Button>
@@ -21,10 +22,12 @@ export default function Btn(props) {
 Button.defaultProps = {
   variant: "",
   name: "",
+  disabled: false,
   onClick: () => null,
 };
 Button.propTypes = {
   name: PropTypes.string,
+  disabled: PropTypes.bool,
   variant: PropTypes.string,
   className: PropTypes.string,
   onClick: PropTypes.func,

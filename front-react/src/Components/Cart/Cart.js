@@ -24,7 +24,7 @@ export default function Cart(props) {
             Total: {props.content.reduce((a, b) => a + b.count * b.price, 0)}DT
           </div>
 
-          <Button name={"BUY"} onClick={props.confirm} variant={"primary"} />
+          <Button name={"BUY"} onClick={props.submit} variant={"primary"} />
         </Stack>
       </Offcanvas.Body>
     </Offcanvas>

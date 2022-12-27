@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "../../Components/Button/Button";
-import { setLang, setUser } from "../../Redux/Actions";
+import { clearCart, setLang, setUser } from "../../Redux/Actions";
 import { FaShopify } from "react-icons/fa";
 import Cart from "../../Components/Cart/Cart";
 
@@ -12,6 +12,9 @@ export default function Navbar(props) {
   const lang = useSelector((state) => state.setting.lang);
   const user = useSelector((state) => state.auth.user);
   const cart = useSelector((state) => state.cart.data);
+  const submit =()=>{
+    
+  }
   const toggelShow=()=>{
     show===false ? setShow(true) : setShow(false)
   }
@@ -56,7 +59,7 @@ export default function Navbar(props) {
             {cart.reduce((a,b)=>a+b.count,0)}
             </div>
           </div>}
-          <Cart show={show} hide={toggelShow} content={cart} remove={dispatch}/>
+          <Cart show={show} hide={toggelShow} content={cart} remove={dispatch} submit={""}/>
           <Button
           variant='dark'
           className="p-1 me-1"
@@ -70,6 +73,8 @@ export default function Navbar(props) {
           className="p-1"
             name={"Logout"}
             onClick={() => {
+              dispatch(clearCart());
+              dispatch(setLang());
               dispatch(setUser({ user: null, token: null }));
             }}
           />

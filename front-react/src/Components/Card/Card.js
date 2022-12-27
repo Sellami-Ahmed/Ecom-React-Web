@@ -10,13 +10,13 @@ export default function Crd(props) {
         <Card.Body>
         <p>Description:{props.description}</p>
         <p>Price:{props.price}</p>
-        <p>Stock:{props.stock}</p>
-        {!props.isAdded && <Button name={"Add"} onClick={props.onClick} variant="primary" />}
+        {props.stock>0 ? <p><p>Stock:{props.stock}</p>{!props.isAdded && <Button name={"Add"} onClick={props.onClick} variant="primary" />}
         {props.isAdded &&<ButtonGroup size="sm">
           <Button name={"-"} variant="danger" onClick={props.desincrement}/>
           <Button name={props.quantity} variant="white"/>
-          <Button name={"+"} variant="success" onClick={props.increment}/>
-        </ButtonGroup>}
+          <Button name={"+"} variant="success" onClick={props.increment} disabled={props.stock<=props.quantity}/>
+        </ButtonGroup>}</p>:<p><Button variant="dark" name={"OUT OF STOCK"} /></p>}
+        
         </Card.Body>
     </Card>
   )
